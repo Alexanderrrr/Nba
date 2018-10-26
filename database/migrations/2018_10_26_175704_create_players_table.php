@@ -19,8 +19,8 @@ class CreatePlayersTable extends Migration
             $table->string('last_name');
             $table->string('email');
 
-            $table->unsignedInteger('teams_id'); //ne moze biti negativan
-            $table->foreign('teams_id')
+            $table->unsignedInteger('team_id'); //ne moze biti negativan
+            $table->foreign('team_id')
                   ->references('id')
                   ->on('teams')
                   ->onDelete('cascade'); //da se obrisu svi komentari na delete
