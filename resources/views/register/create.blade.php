@@ -6,7 +6,7 @@
 
 @section('content')
 
-      <form class="form-signin" method="POST" action="/register">
+      <form class="form-signin" method="POST" action="/nba/register">
 
         {{ csrf_field() }}
 

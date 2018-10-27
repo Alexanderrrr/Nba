@@ -12,6 +12,6 @@
 
     <h1>Players of this team</h1>
       @foreach($team->players as $player)
-        <h1><a href="/players/{{$player->id}}">{{ $player->last_name }}</a></h1>
+        <h1><a href="/nba/players/{{$player->id}}">{{ $player->last_name }}</a></h1>
       @endforeach
 @endsection

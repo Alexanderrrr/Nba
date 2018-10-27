@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+
+  public function __construct()
+  {
+    $this->middleware('guest',['except' => 'logout']);
+  }
+
   public function index()
   {
     return view('login.index');
@@ -20,14 +26,14 @@ class LoginController extends Controller
     }
 
 
-    return redirect('/');
+    return redirect('/nba');
   }
 
   public function logout()
   {
     auth()->logout();
 
-    return redirect('/login');
+    return redirect('/');
   }
 
 }

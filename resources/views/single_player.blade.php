@@ -9,7 +9,7 @@
       <li>{{$player->first_name}}</li>
       <li>{{$player->last_name}}</li>
       <li>{{$player->email}}</li>
-      <li><a href="/teams/{{$player->team->id}}">{{$player->team->name}}</a></li>
+      <li><a href="/nba/teams/{{$player->team->id}}">{{$player->team->name}}</a></li>
 
 
     </ul>

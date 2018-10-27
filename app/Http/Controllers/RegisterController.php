@@ -7,6 +7,11 @@ use App\User;
 
 class RegisterController extends Controller
 {
+
+    public function __construct()
+    {
+      $this->middleware('guest');
+    }
     public function create()
     {
         return view('register.create');
@@ -27,7 +32,7 @@ class RegisterController extends Controller
 
       auth()->login($user);
 
-      return redirect('/');
+      return redirect('/nba');
 
     }
 

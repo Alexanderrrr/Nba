@@ -6,6 +6,6 @@
 
 @section('content')
   @foreach($teams as $team)
-    <h1><a href="/teams/{{ $team->id }}">{{ $team->name }}</a></h1>
+    <h1><a href="/nba/teams/{{ $team->id }}">{{ $team->name }}</a></h1>
   @endforeach
 @endsection

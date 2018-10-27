@@ -17,11 +17,11 @@
                 <li class="nav-item">
                   <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
-                <a class="btn btn-sm btn-outline-secondary" href="/logout">Logout</a>
+                <a class="btn btn-sm btn-outline-secondary" href="/nba/logout">Logout</a>
               </ul>
           @else
-              <a class="btn btn-sm btn-outline-secondary" href="/login">Login</a>
-              <a class="btn btn-sm btn-outline-secondary" href="/register">Sign up</a>
+              <a class="btn btn-sm btn-outline-secondary" href="/">Login</a>
+              <a class="btn btn-sm btn-outline-secondary" href="/nba/register">Sign up</a>
 
 
 
