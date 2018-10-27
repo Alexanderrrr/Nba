@@ -16,9 +16,10 @@ Route::get('/','TeamsController@index');
 Route::get('/teams/{id}','TeamsController@show');
 Route::get('/players/{playerId}','PlayersController@show');
 
-Route::get('/register','RegisterController@create');
-Route::post('/register', 'RegisterController@store');
-
+Route::group(['prefix' => 'register'],function () {
+    Route::get('/','RegisterController@create');
+    Route::post('/', 'RegisterController@store');
+});
 Route::get('/logout', 'LoginController@logout');
 
 });

@@ -30,9 +30,9 @@ class RegisterController extends Controller
       $user->password = bcrypt(request('password'));
       $user->save();
 
-      auth()->login($user);
 
-      return redirect('/nba');
+      return redirect('/');
+      //auth()->login($user);
 
     }
 
