@@ -14,4 +14,11 @@
       @foreach($team->players as $player)
         <h1><a href="/nba/players/{{$player->id}}">{{ $player->last_name }}</a></h1>
       @endforeach
+      <ul>
+        <ul>
+          @foreach($team->comments as $comments)
+          <li>{{ $comments->content }}</li>
+          @endforeach
+        </ul>
+      </ul>
 @endsection
