@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+@extends('master')
+
+@section('title')
+  Single Player Info
+@endsection
+
+@section('content')
     <ul>
       <li>{{$player->first_name}}</li>
       <li>{{$player->last_name}}</li>
@@ -13,5 +13,4 @@
 
 
     </ul>
-  </body>
-</html>
+@endsection

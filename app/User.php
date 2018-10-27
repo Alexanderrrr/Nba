@@ -18,6 +18,14 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
+    const VALIDATION_RULES = [
+
+        'name' => 'required',
+        'email' => 'required | email',
+        'password' => 'required_with:password_confirmation|same:password_confirmation',
+        'password_confirmation'
+
+    ];
 
     /**
      * The attributes that should be hidden for arrays.

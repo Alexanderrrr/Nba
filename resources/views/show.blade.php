@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+@extends('master')
+
+@section('title')
+  Single Team Info
+@endsection
+
+@section('content')
     <h1>{{ $team->name }}</h1>
     <p>{{ $team->email }}</p>
     <p>{{ $team->address }}</p>
@@ -14,6 +14,4 @@
       @foreach($team->players as $player)
         <h1><a href="/players/{{$player->id}}">{{ $player->last_name }}</a></h1>
       @endforeach
-
-  </body>
-</html>
+@endsection
