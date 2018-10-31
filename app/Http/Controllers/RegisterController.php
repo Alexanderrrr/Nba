@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use App\Mail\VerifieAccount;
+use Illuminate\Support\Facades\Mail;
 class RegisterController extends Controller
 {
 
@@ -30,8 +31,9 @@ class RegisterController extends Controller
       $user->password = bcrypt(request('password'));
       $user->save();
 
+      Mail::to($user)->send(new VerifieAccount($user));
 
-      return redirect('/');
+      return redirect('/')->withErrors(["You need to verify your mail. We sent verification code at {$user->email}"]);;
       //auth()->login($user);
 
     }

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Player;
+use App\Comment;
 
 class Team extends Model
 {

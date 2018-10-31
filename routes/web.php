@@ -12,18 +12,25 @@
 */
 Route::group(['prefix' => 'nba'],function () {
 
-Route::get('/','TeamsController@index');
-Route::get('/teams/{id}','TeamsController@show');
-Route::get('/players/{playerId}','PlayersController@show');
+    Route::get('/','TeamsController@index');
+    Route::get('/teams/{id}','TeamsController@show');
+    Route::get('/players/{playerId}','PlayersController@show')->middleware('auth');
 
-Route::group(['prefix' => 'register'],function () {
-    Route::get('/','RegisterController@create');
-    Route::post('/', 'RegisterController@store');
+    Route::get('/forbidden-comment', 'CommentsController@forbidden');
+    Route::post('/comment/{teamId}','CommentsController@store');
+
+    Route::group(['prefix' => 'register'],function () {
+        Route::get('/','RegisterController@create');
+        Route::post('/', 'RegisterController@store');
+    });
+    Route::get('/logout', 'LoginController@logout');
+
 });
-Route::get('/logout', 'LoginController@logout');
 
-});
+//Redirecting Unauthenticated Users
+//OVIM  ->name('login') GADJAM NAME U Middleware Authenticate redirectTo()
 
+Route::get('/', 'LoginController@index')->name('login');
+Route::post('/login', 'LoginController@login')->middleware('myverified');
 
-Route::get('/', 'LoginController@index');
-Route::post('/login', 'LoginController@login');
+Route::post('/verified', 'LoginController@verify');

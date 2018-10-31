@@ -21,4 +21,16 @@
           @endforeach
         </ul>
       </ul>
+      <h4>Post a Comment</h4>
+      <h1>{{ auth()->user()->id }}</h1>
+      <form method="POST" action="/nba/comment/{{$team->id}}">
+
+        @csrf
+
+        <div class="form-group">
+          <label>Text</label>
+          <textarea name="content"class="form-control" placeholder="Enter comment" rows="5" cols="20"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 @endsection

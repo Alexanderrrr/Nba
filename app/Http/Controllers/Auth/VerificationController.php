@@ -17,6 +17,7 @@ class VerificationController extends Controller
     | be re-sent if the user didn't receive the original email message.
     |
     */
+    // before
 
     use VerifiesEmails;
 
@@ -25,7 +26,7 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/nba';
 
     /**
      * Create a new controller instance.
