@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['verify' => true]);
 Route::group(['prefix' => 'nba'],function () {
 
     Route::get('/','TeamsController@index');
@@ -34,3 +35,4 @@ Route::get('/', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@login')->middleware('myverified');
 
 Route::post('/verified', 'LoginController@verify');
+Route::get('/news', 'NewsesController@index');
