@@ -15,7 +15,6 @@ class Comment extends Model
       'content' => [
         'required',
         'min:10',
-       'not_in:hate,idiot,stupid'
      ]
   ];
 
