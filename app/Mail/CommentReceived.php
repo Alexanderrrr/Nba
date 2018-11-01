@@ -6,20 +6,20 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\User;
 
-class VerifieAccount extends Mailable
+class CommentReceived extends Mailable
 {
     use Queueable, SerializesModels;
-    public $user;
+    protected $comment;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+
+    public function __construct($comment)
     {
-        $this->user = $user;
+        $this->comment = $comment;
     }
 
     /**
@@ -29,6 +29,9 @@ class VerifieAccount extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.verify_mail');
+        return $this->view('emails.comment-received')
+                ->with([
+                    'comment' => $this->comment,
+                ]);
     }
 }

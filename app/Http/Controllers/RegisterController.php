@@ -33,7 +33,7 @@ class RegisterController extends Controller
 
       Mail::to($user)->send(new VerifieAccount($user));
 
-      return redirect('/')->withErrors(["You need to verify your mail. We sent verification code at {$user->email}"]);;
+      return redirect('/')->with('messagge',["You need to verify your mail. We sent verification code at {$user->email}"]);;
       //auth()->login($user);
 
     }
