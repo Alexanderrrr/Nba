@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use App\User;
 class NewsesController extends Controller
 {
     public function index()
     {
       $newses = News::paginate(5);
-      return view('news', ['newses' => $newses]);
+      return view('news.index', ['newses' => $newses]);
+    }
+
+    public function show($id)
+    {
+        $news = News::with('user')->find($id);
+        return view('news.show', ['news' => $news]);
     }
 }
