@@ -20,7 +20,7 @@ class TeamsController extends Controller
 
     public function show($id)
     {
-      $team = Team::findOrFail($id);
+      $team = Team::with('news')->find($id);
       return view('show', ['team' => $team]);
     }
 }

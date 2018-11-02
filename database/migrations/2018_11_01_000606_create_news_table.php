@@ -23,11 +23,11 @@ class CreateNewsTable extends Migration
                   ->references('id')
                   ->on('users')
                   ->onDelete('cascade');
-                  
+
             $table->timestamps();
 
         });
-    }
+
 
     /**
      * Reverse the migrations.

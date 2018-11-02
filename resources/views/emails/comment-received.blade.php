@@ -5,8 +5,9 @@
     <title></title>
   </head>
   <body>
-      <p>{{ auth()->user()->name }}</p>
-      <h1>You got new comment: {{ $comment->content }}</h1>
-      <p>at: {{ $comment->created_at }}</p>
+      <h1>Comment for Team {{ $comment->team->name }}</h1>
+      <p>To: {{ auth()->user()->name }}</p>
+      <h1>comment: {{ $comment->content }}</h1>
+      <p>created at: {{ $comment->created_at }}</p>
   </body>
 </html>

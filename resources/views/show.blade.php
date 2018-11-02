@@ -22,7 +22,6 @@
         </ul>
       </ul>
       <h4>Post a Comment</h4>
-      <h1>{{ auth()->user()->id }}</h1>
       <form method="POST" action="/nba/comment/{{$team->id}}">
 
         @csrf
@@ -33,4 +32,9 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+  <h1>All newses for this team</h1>
+  @foreach($team->news as $news)
+    <li>{{$news->content}}</li>
+    <br/>
+  @endforeach
 @endsection

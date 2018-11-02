@@ -13,4 +13,9 @@
         <li><strong>{{ $news->content }}</strong></li>
       </ul>
     </ul>
+
+   <h1>These news are related to teams:</h1>
+   @foreach($news->team as $team)
+       <li>{{$team->name}}</li>
+   @endforeach
 @endsection
