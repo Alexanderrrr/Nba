@@ -37,3 +37,5 @@ Route::post('/login', 'LoginController@login')->middleware('myverified');
 Route::post('/verified', 'LoginController@verify');
 Route::get('/news', 'NewsesController@index');
 Route::get('/news/{id}', 'NewsesController@show');
+Route::get('/create/news', 'NewsesController@create');
+Route::post('/create/news', 'NewsesController@store');

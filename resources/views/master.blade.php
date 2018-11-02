@@ -58,6 +58,11 @@
       </style>
 <div class="mycontainer">
 <main class="container">
+  @if($flash = session('message'))
+      <div class="alert alert-success">
+          {{ $flash }}
+      </div>
+  @endif
   @if(auth()->check())
   <h2>Hello, {{ auth()->user()->name }}</h2>
   <hr/>
