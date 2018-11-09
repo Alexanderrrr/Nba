@@ -5,6 +5,7 @@
     <title></title>
   </head>
   <body>
-    <h1><a href="http://localhost:8000/verified">Verifie</a></h1>
+
+    <h1><a href="http://localhost:8000/verified/{{ $user->email }}">Verifie</a></h1>
   </body>
 </html>

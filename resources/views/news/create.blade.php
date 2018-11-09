@@ -6,7 +6,7 @@
 
 @section('content')
 
-      <form class="form-signin" method="POST" action="/create/news">
+      <form class="form-signin" method="POST" action="/news/create">
 
         {{ csrf_field() }}
 
@@ -22,7 +22,8 @@
             <label>Select teams</label><br/>
 
             @foreach($teams as $team)
-            {{ $team->name }} <input type="checkbox" name="teams[]" value="{{  $team->id  }}"><br/>
+            <label for="teams[]">    {{ $team->name }} </label>
+            <input type="checkbox" name="teams[]" value="{{  $team->id  }}"><br/>
             @endforeach
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Publish</button>

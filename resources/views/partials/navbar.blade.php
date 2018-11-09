@@ -12,7 +12,7 @@
                   <a class="nav-link" href="/news">News</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/create/news">Create News</a>
+                  <a class="nav-link" href="/news/createnews">Create News</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link disabled" href="#">Disabled</a>

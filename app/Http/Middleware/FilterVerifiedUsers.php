@@ -19,11 +19,17 @@ class FilterVerifiedUsers
     {
 
         $user = User::where('email', request('email'))->first();
+        if(!$user) {
+          return back()
+                 ->withErrors([
+                     'message' => 'Register First!'
+                 ]);
+        }
 
-        if (!$user->is_verified) {
+        elseif(!$user->is_verified) {
             return redirect('/')->withErrors(['Account is not yet verified']);
             }
-        
+
 
 
         return $next($request);

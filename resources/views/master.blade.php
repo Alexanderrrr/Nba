@@ -74,6 +74,13 @@
 
   </div>
 </main>
+<aside class="col-md-4 blog-sidebar">
+  @if(auth()->check())
+
+     @include('partials.sidebar')
+ @endif
+
+</aside><!-- /.blog-sidebar -->
 </div>
 
     </body>

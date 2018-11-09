@@ -9,6 +9,12 @@ use App\Team;
 
 class NewsesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
       $newses = News::latest()->paginate(5);
@@ -17,7 +23,7 @@ class NewsesController extends Controller
 
     public function show($id)
     {
-        $news = News::with('user','team')->find($id);
+        $news = News::with('user','team')->findOrFail($id);
         return view('news.show', ['news' => $news]);
     }
 
@@ -25,7 +31,7 @@ class NewsesController extends Controller
     public function create()
     {
         $teams = Team::all();
-        return view('news.create')->with('teams', $teams);
+        return view('news.create', ['teams' => $teams]);
     }
 
     public function store()

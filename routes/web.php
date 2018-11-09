@@ -10,21 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes(['verify' => true]);
 Route::group(['prefix' => 'nba'],function () {
-
     Route::get('/','TeamsController@index');
     Route::get('/teams/{id}','TeamsController@show');
     Route::get('/players/{playerId}','PlayersController@show')->middleware('auth');
-
     Route::get('/forbidden-comment', 'CommentsController@forbidden');
     Route::post('/comment/{teamId}','CommentsController@store');
+    Route::get('/logout', 'LoginController@logout');
 
     Route::group(['prefix' => 'register'],function () {
         Route::get('/','RegisterController@create');
         Route::post('/', 'RegisterController@store');
     });
-    Route::get('/logout', 'LoginController@logout');
 
 });
 
@@ -33,9 +30,11 @@ Route::group(['prefix' => 'nba'],function () {
 
 Route::get('/', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@login')->middleware('myverified');
+Route::get('/verified/{email}', 'LoginController@verify');
 
-Route::post('/verified', 'LoginController@verify');
-Route::get('/news', 'NewsesController@index');
-Route::get('/news/{id}', 'NewsesController@show');
-Route::get('/create/news', 'NewsesController@create');
-Route::post('/create/news', 'NewsesController@store');
+Route::group(['prefix' => 'news'],function () {
+    Route::get('/', 'NewsesController@index');
+    Route::get('/createnews', 'NewsesController@create');
+    Route::get('/{id}', 'NewsesController@show');
+    Route::post('/create', 'NewsesController@store');
+});

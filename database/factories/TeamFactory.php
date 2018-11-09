@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Team::class, function (Faker $faker) {
     return [
-      'name' => $faker->cityPrefix,
+      'name' => $faker->state,
       'email' => $faker->unique()->safeEmail,
       'address' => $faker->streetAddress,
       'city' => $faker->city

@@ -23,4 +23,6 @@ class TeamsController extends Controller
       $team = Team::with('news')->find($id);
       return view('show', ['team' => $team]);
     }
+
+
 }
